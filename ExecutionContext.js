@@ -1,122 +1,105 @@
 var primaryColor = "Red";
-let secondaryColor = "Blue";
+var secondaryColor = "Blue";
+var combinedColor = primaryColor + secondaryColor;
 
-function ColorMix() {
-    let mixedColor = "Purple";
-    const shades = ["Light Purple", "Dark Purple", "Lavender"];
-
-    const result = mixedColor + " is a mixture of " + primaryColor + " and " + secondaryColor;
-
-    console.log(result);
-
-    function shadesInfo() {
-        let light = "Light Purple";
-        let dark = "Dark Purple";
-
-        console.log("Shades available: " + light + " and " + dark);
-    }
-    shadesInfo();
+function getColorData() {
+    let firstShade = "Light Red"; 
+    let secondShade = "Dark Blue"; 
+    
+    console.log("Combined Color: " + combinedColor); 
+    console.log("First Shade: " + firstShade);  
+    console.log("Second Shade: " + secondShade); 
 }
-ColorMix();
 
-/*
+getColorData();
 
-Global Execution context (CREATION){
+//  Global execution context (GEC)
 
-Lexical Environment{
+// Creation Phase 
 
-Environment Record{
- primaryColor: undefined, => Declarative
- secondaryColor: declared but not initialized. => Declarative
- function: ColorMix(); => Object
-
- }
+globalExecutionContext: {
+    LexicalEnvironment: {
+        EnvironmentRecord:  {
+            type: "declarative",
+            primaryColor: undefined,
+            secondaryColor: undefined,
+        
+        },
+        outer: "null",
+        ThisBinding: "global object or window object"
+    },
+    VariableEnvironment: {
+        EnvironmentRecord:  {
+            type: "declarative",
+            combinedColor: undefined,
+        },
+        outer: "null",
+        ThisBinding: "global object or window object"
+    },
 }
+
+// Execution phase
+
+globalExecutionContext: {
+    LexicalEnvironment: {
+        EnvironmentRecord:  {
+            type: "declarative",
+            primaryColor: 'Red',
+            secondaryColor: 'Blue',
+        },
+        outer: "null",
+        ThisBinding: "global object or window object"
+    },
+    VariableEnvironment: {
+        EnvironmentRecord:  {
+            type: "declarative",
+            combinedColor: 'RedBlue',
+        },
+        outer: "null",
+        ThisBinding: "global object or window object"
+    },
 }
-OUTER: null
-THIS: window
 
+// Function execution context (FEC)
 
-Global Execution context (EXECUTION){
+// Creation Phase 
 
-Lexical Environment{
-
-Environment Record{
- primaryColor: "Red"
- secondaryColor: "Blue"
- function: ColorMix();
-
- }
+FunctionExecutionContext: {
+    LexicalEnvironment: {
+        EnvironmentRecord:  {
+            type: "declarative",
+            firstShade: undefined,
+            secondShade: undefined,
+        },
+        outer: "Global Execution context",
+        ThisBinding: getColorData()
+    },
+    VariableEnvironment: {
+        EnvironmentRecord:  {
+            type: "object",
+        },
+        outer: "Global Execution context",
+        ThisBinding: getColorData()
+    },
 }
+
+// Execution phase 
+
+FunctionExecutionContext: {
+    LexicalEnvironment: {
+        EnvironmentRecord:  {
+            type: "declarative",
+            firstShade: 'Light Red',
+            secondShade: 'Dark Blue', 
+        },
+        outer: "Global Execution context",
+        ThisBinding: getColorData()
+    },
+    VariableEnvironment: {
+        EnvironmentRecord:  {
+            type: "object",
+        },
+        outer: "Global Execution context",
+        ThisBinding: getColorData()
+    },
 }
-OUTER: null
-THIS: window
-
-
--------Function ColorMix() Execution Context--------
-
-Function Execution context (CREATION){
-
-Lexical Environment{
-
-Environment Record{
- mixedColor: declared but not initialized. => Declarative
- shades: declared but not initialized. => Object
- result: declared but not initialized. => Object
- function: shadesInfo() => Object
- }
-}
-}
-OUTER: Global Execution Context
-THIS: ColorMix()
-
-
-Function Execution context (EXECUTION){
-
-Lexical Environment{
-
-Environment Record{
- mixedColor: "Purple"                                 => Declarative
- shades: ["Light Purple", "Dark Purple", "Lavender"]  => Object
- result: "Purple is a mixture of Red and Blue"       => Object
- console.log(result); // output "Purple is a mixture of Red and Blue"
- function: shadesInfo()                                 => Object
- }
-}
-OUTER: Global Execution Context
-THIS: ColorMix()
-
-
--------Function shadesInfo() Execution Context--------
-
-Function Execution context (CREATION){
-
-Lexical Environment{
-
-Environment Record{
- light: declared but not initialized. => Declarative
- dark: declared but not initialized. => Declarative
-
- }
-}
-}
-OUTER: ColorMix() Execution Context
-THIS: shadesInfo()
-
-
-Function Execution context (EXECUTION){
-
-Lexical Environment{
-Environment Record{
- light: "Light Purple"       => Declarative
- dark: "Dark Purple"         => Declarative
-
- console.log("Shades available: " + light + " and " + dark); // outputs : Light Purple and Dark Purple"
-
- }
-}
-}
-OUTER: ColorMix() Execution Context
-THIS: shadesInfo()
-
-*/
