@@ -20,7 +20,7 @@ getColorData();
 globalExecutionContext: {
     LexicalEnvironment: {
         EnvironmentRecord:  {
-            type: "declarative",
+            type: "object",
             primaryColor: undefined,
             secondaryColor: undefined,
         
@@ -30,7 +30,7 @@ globalExecutionContext: {
     },
     VariableEnvironment: {
         EnvironmentRecord:  {
-            type: "declarative",
+            type: "object",
             combinedColor: undefined,
         },
         outer: "null",
@@ -43,7 +43,7 @@ globalExecutionContext: {
 globalExecutionContext: {
     LexicalEnvironment: {
         EnvironmentRecord:  {
-            type: "declarative",
+            type: "object",
             primaryColor: 'Red',
             secondaryColor: 'Blue',
         },
@@ -52,7 +52,7 @@ globalExecutionContext: {
     },
     VariableEnvironment: {
         EnvironmentRecord:  {
-            type: "declarative",
+            type: "object",
             combinedColor: 'RedBlue',
         },
         outer: "null",
@@ -67,7 +67,7 @@ globalExecutionContext: {
 FunctionExecutionContext: {
     LexicalEnvironment: {
         EnvironmentRecord:  {
-            type: "declarative",
+            type: "object",
             firstShade: undefined,
             secondShade: undefined,
         },
@@ -88,7 +88,7 @@ FunctionExecutionContext: {
 FunctionExecutionContext: {
     LexicalEnvironment: {
         EnvironmentRecord:  {
-            type: "declarative",
+            type: "object",
             firstShade: 'Light Red',
             secondShade: 'Dark Blue', 
         },
