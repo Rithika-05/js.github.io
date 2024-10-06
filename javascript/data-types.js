@@ -4,7 +4,7 @@ console.log(typeof price);
 
 // Strings
 let name = 'Rithika';
-console.log(typeof name); 
+console.log(typeof myname); 
 
 // Boolean
 let isAdmin = true;
